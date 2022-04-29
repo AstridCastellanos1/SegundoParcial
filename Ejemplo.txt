@@ -1,0 +1,59 @@
+//Creación de nodos para alumnos
+CREATE (Juana:Persona:Alumno{nombre:'Juana',edad:'20'})
+CREATE (Mario:Persona:Alumno{nombre:'Mario',edad:'23'})
+CREATE (Pedro:Persona:Alumno{nombre:'Pedro',edad:'20'})
+CREATE (Ana:Persona:Alumno{nombre:'Ana',edad:'22'})
+CREATE (Luisa:Persona:Alumno{nombre:'Luisa',edad:'21'})
+
+//Creación de nodos para profesores
+CREATE (Luiz:Persona:Profesor{nombre:'Luiz',edad:'31'})
+CREATE (Carla:Persona:Profesor{nombre:'Carla',edad:'35'})
+
+//Creación de nodos para personas parcticulares
+CREATE (Angel:Persona{nombre:'Angel',edad:'25'})
+CREATE (Sandra:Persona{nombre:'Sandra',edad:'23'})
+CREATE (Felix:Persona{nombre:'Felix',edad:'28'})
+
+//Creación de nodos para clases
+CREATE (Programacion:Clase{nombre:'Programacion'})
+CREATE (Matematicas:Clase{nombre:'Matematicas'})
+CREATE (Contabilidad:Clase{nombre:'Contabilidad'})
+
+//Creación de nodos para facultades
+CREATE (Arquitectura:Facultad{nombre:'Arquitectura'})
+CREATE (IngenieríaEnSistemas:Facultad{nombre:'IngenieríaEnSistemas'})
+
+//Creación de nodos para actividades
+CREATE (Correr:Actividad{nombre:'Correr'})
+
+//Creación de relaciones
+CREATE (Juana)-[:Asiste_a]->(Programacion)
+CREATE (Juana)-[:Asiste_a]->(Contabilidad)
+CREATE (Mario)-[:Asiste_a]->(Programacion)
+CREATE (Ana)-[:Asiste_a]->(Programacion)
+CREATE (Ana)-[:Asiste_a]->(Contabilidad)
+CREATE (Juana)-[:Estudia_en]->(IngenieríaEnSistemas)
+CREATE (Mario)-[:Estudia_en]->(IngenieríaEnSistemas)
+CREATE (Ana)-[:Estudia_en]->(IngenieríaEnSistemas)
+
+CREATE (Pedro)-[:Asiste_a]->(Matematicas)
+CREATE (Luisa)-[:Asiste_a]->(Matematicas)
+CREATE (Pedro)-[:Estudia_en]->(Arquitectura)
+CREATE (Luisa)-[:Estudia_en]->(Arquitectura)
+
+CREATE (Luiz)-[:Imparte]->(Matematicas)
+CREATE (Carla)-[:Imparte]->(Contabilidad)
+CREATE (Carla)-[:Imparte]->(Programacion)
+CREATE (Luiz)-[:Profesor_en]->(Arquitectura)
+CREATE (Carla)-[:Profesor_en]->(IngenieríaEnSistemas)
+
+CREATE (Mario)-[:Amigo_de]->(Angel)
+CREATE (Ana)-[:Amigo_de]->(Sandra)
+CREATE (Felix)-[:Amigo_de]->(Carla)
+CREATE (Juana)-[:Amigo_de]->(Pedro)
+
+CREATE (Mario)-[:Le_gusta]->(Correr)
+
+//Creación durante la gravación del video
+CREATE (Bailar:Actividad{nombre:'Bailar'})
+CREATE (Ana)-[:Le_gusta]->(Bailar)
